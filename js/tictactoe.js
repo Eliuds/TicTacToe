@@ -4,7 +4,7 @@ let activePlayer='X';
 let selectedSquares = [];
 
 //This function is for placing an x or o in a square.//
-function placeXoro(squareNumber) {
+function placeXOrO(squareNumber) {
 //This condition ensures a square hasnt been selected already.
 //The.some() method is used to check each element of selectedSquares array
 //to see if it contains the square number clicked on
@@ -36,7 +36,7 @@ function placeXoro(squareNumber) {
         }
 
         //This function plays placement sound.
-        Audio('./media/place.mp3');
+        Audio('media/place.mp3');
         //This condition checks to see if it is computers turn.
         if(activePlayer === 'O'){
             //This function disables clicking for computer choice.
@@ -60,9 +60,9 @@ function placeXoro(squareNumber) {
             //A random number between 0 and 8 is selected.
             pickASquare = String(Math.floor(Math.random() * 9));
             //If the random number evaluated returns true, the square hasnt been selected yet.
-            if (placeXoro(pickASquare)){
+            if (placeXOrO(pickASquare)){
                 //This line calls the function.
-                placeXoro(pickASquare);
+                placeXOrO(pickASquare);
                 //This changes our boolean and ends the loop.
                 success = true;
             };
@@ -111,7 +111,7 @@ function checkWinConditions() {
     //Squares are selected the code executes
     else if (selectedSquares.length >= 9){
         //This function playes the tie game sound.
-        Audio('./media/tie.mp3');
+        Audio('media/tie.mp3');
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function () { resetGame();}, 1000);
     }
